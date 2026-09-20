@@ -1,81 +1,68 @@
-// Java program for Merge Sort
+public class MergeSorter {
 
-class MergeSort {
+    private static long comparisons = 0;
+    private static int maxRecursionDepth = 0;
 
-    // Merges two subarrays of a[]
-    void merge(int a[], int l, int m, int r)
-    {
+    public static void sort(int[] arr) {
+        reset();
+        if (arr == null || arr.length <= 1) {
+            return;
+        }
+        int[] temp = new int[arr.length];
+        sort(arr, temp, 0, arr.length - 1, 1);
+    }
 
-        int n1 = m - l + 1;
-        int n2 = r - m;
+    private static void sort(int[] arr, int[] temp, int left, int right, int currentDepth) {
+        if (currentDepth > maxRecursionDepth) {
+            maxRecursionDepth = currentDepth;
+        }
 
-        int L[] = new int[n1];
-        int R[] = new int[n2];
+        if (left < right) {
+            int mid = left + (right - left) / 2;
+            sort(arr, temp, left, mid, currentDepth + 1);
+            sort(arr, temp, mid + 1, right, currentDepth + 1);
+            merge(arr, temp, left, mid, right);
+        }
+    }
 
-        for (int i = 0; i < n1; ++i)
-            L[i] = a[l + i];
+    private static void merge(int[] arr, int[] temp, int left, int mid, int right) {
+        for (int i = left; i <= right; i++) {
+            temp[i] = arr[i];
+        }
 
-        for (int j = 0; j < n2; ++j)
-            R[j] = a[m + 1 + j];
+        int i = left;
+        int j = mid + 1;
+        int k = left;
 
-        // Merge the temp arrays
-        // Initial indexes of first and second subarrays
-        int i = 0, j = 0;
-
-        int k = l;
-        while (i < n1 && j < n2) {
-            if (L[i] <= R[j]) {
-                a[k] = L[i];
+        while (i <= mid && j <= right) {
+            comparisons++;
+            if (temp[i] <= temp[j]) {
+                arr[k] = temp[i];
                 i++;
-            }
-            else {
-                a[k] = R[j];
+            } else {
+                arr[k] = temp[j];
                 j++;
             }
             k++;
         }
 
-        while (i < n1) {
-            a[k] = L[i];
+        while (i <= mid) {
+            arr[k] = temp[i];
+            k++;
             i++;
-            k++;
-        }
-
-        while (j < n2) {
-            a[k] = R[j];
-            j++;
-            k++;
         }
     }
 
-    // Main function that sorts a[l..r] using
-    // merge()
-    void sort(int a[], int l, int r)
-    {
-        if (l < r) {
-
-            int m = (l + r) / 2;
-
-            // Sort first and second halves
-            sort(a, l, m);
-            sort(a, m + 1, r);
-
-            // Merge the sorted halves
-            merge(a, l, m, r);
-        }
+    public static void reset() {
+        comparisons = 0;
+        maxRecursionDepth = 0;
     }
 
-    // Driver method
-    public static void main(String args[])
-    {
-        int a[] = { 12, 11, 13, 5, 6, 7 };
+    public static long getComparisons() {
+        return comparisons;
+    }
 
-        // Calling of Merge Sort
-        MergeSort ob = new MergeSort();
-        ob.sort(a, 0, a.length - 1);
-
-        int n = a.length;
-        for (int i = 0; i < n; ++i)
-            System.out.print(a[i] + " ");
+    public static int getMaxRecursionDepth() {
+        return maxRecursionDepth;
     }
 }
