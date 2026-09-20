@@ -1,0 +1,34 @@
+;;;;;;
+Algorithms;Data Type;Size (n);Time;Time (мс);Recursion Depth;VS
+MergeSort;Random;100;48 800;0.05 мс;0;663
+QuickSort;Random;100;111 400;0.11 мс;5;564
+MergeSort;Sorted;100;25 100;0.03 мс;0;392
+QuickSort;Sorted;100;62 100;0.06 мс;5;595
+MergeSort;Reverse-Sorted;100;49 000;0.05 мс;0;876
+QuickSort;Reverse-Sorted;100;55 700;0.06 мс;5;576
+MergeSort;Duplicate-Heavy;100;38 300;0.04 мс;0;645
+QuickSort;Duplicate-Heavy;100;132 800;0.13 мс;4;1 283
+MergeSort;Random;1 000;558 500;0.56 мс;0;9 759
+QuickSort;Random;1 000;772 900;0.77 мс;7;10 920
+MergeSort;Sorted;1 000;399 000;0.40 мс;0;7 536
+QuickSort;Sorted;1 000;704 400;0.70 мс;7;11 045
+MergeSort;Reverse-Sorted;1 000;659 700;0.66 мс;0;11 400
+QuickSort;Reverse-Sorted;1 000;785 500;0.79 мс;7;10 923
+MergeSort;Duplicate-Heavy;1 000;570 800;0.57 мс;0;9 269
+QuickSort;Duplicate-Heavy;1 000;5 509 500;5.51 мс;4;101 699
+MergeSort;Random;10 000;3 957 700;3.96 мс;0;129 108
+QuickSort;Random;10 000;1 406 200;1.41 мс;10;156 469
+MergeSort;Sorted;10 000;809 500;0.81 мс;0;108 976
+QuickSort;Sorted;10 000;1 212 600;1.21 мс;9;153 043
+MergeSort;Reverse-Sorted;10 000;779 100;0.78 мс;0;143 913
+QuickSort;Reverse-Sorted;10 000;1 491 500;1.49 мс;9;161 397
+MergeSort;Duplicate-Heavy;10 000;890 300;0.89 мс;0;125 014
+QuickSort;Duplicate-Heavy;10 000;26 982 100;26.98 мс;4;10 028 684
+MergeSort;Random;50 000;5 261 100;5.26 мс;0;777 895
+QuickSort;Random;50 000;4 710 900;4.71 мс;11;913 645
+MergeSort;Sorted;50 000;2 321 200;2.32 мс;0;645 904
+QuickSort;Sorted;50 000;2 695 500;2.70 мс;11;924 406
+MergeSort;Reverse-Sorted;50 000;3 070 900;3.07 мс;0;878 999
+QuickSort;Reverse-Sorted;50 000;2 315 400;2.32 мс;12;958 568
+MergeSort;Duplicate-Heavy;50 000;2 223 500;2.22 мс;0;752 646
+QuickSort;Duplicate-Heavy;50 000;331 416 700;331.42 мс;4;250 122 891
